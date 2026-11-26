@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woskowa Chatka</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Woskowa Chatka</h1>
+
+        <nav>
+            <a href="#onas">O nas</a>
+            <a href="#produkty">Produkty</a>
+            <a href="#zamowienie">Zamówienie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="onas">
+            <h2>O nas</h2>
+            <p>
+                Woskowa Chatka to mały sklep z ręcznie robionymi świecami sojowymi.
+                Każda świeca jest tworzona z pasją i dbałością o szczegóły.
+                Nasze produkty są idealne na prezent oraz do stworzenia przytulnej atmosfery w domu.
+            </p>
+        </section>
+
+        <section id="produkty">
+            
+            <h2>Nasze produkty</h2>
+            
+            <div class="products">
+
+            <article>
+                <img src="images/lawendowa.png" alt="Świeca lawendowa">
+                <h3>Lawendowy wieczór</h3>
+                <p>Zapach: lawenda</p>
+                <p>Pojemność: 180 ml</p>
+                <p>Cena: 49 zł</p>
+                <button class="add-to-cart" data-price="49">
+                    Dodaj do koszyka
+                </button>
+            </article>
+
+            <article>
+                <img src="images/waniliowa.png" alt="Świeca waniliowa">
+                <h3>Waniliowy sen</h3>
+                <p>Zapach: wanilia</p>
+                <p>Pojemność: 180 ml</p>
+                <p>Cena: 45 zł</p>
+                <button class="add-to-cart" data-price="45">
+                    Dodaj do koszyka
+                </button>
+            </article>
+
+            <article>
+                <img src="images/lesna.png" alt="Świeca leśna">
+                <h3>Leśna przygoda</h3>
+                <p>Zapach: sosna i cedr</p>
+                <p>Pojemność: 250 ml</p>
+                <p>Cena: 59 zł</p>
+                <button class="add-to-cart" data-price="59">
+                    Dodaj do koszyka
+                </button>
+            </article>
+
+            <article>
+                <img src="images/rozana.png" alt="Świeca różana">
+                <h3>Różany ogród</h3>
+                <p>Zapach: róża</p>
+                <p>Pojemność: 180 ml</p>
+                <p>Cena: 52 zł</p>
+                <button class="add-to-cart" data-price="52">
+                    Dodaj do koszyka
+                </button>
+            </article>
+
+            <article>
+                <img src="images/cytrusowa.png" alt="Świeca cytrusowa">
+                <h3>Cytrusowy poranek</h3>
+                <p>Zapach: cytryna i pomarańcza</p>
+                <p>Pojemność: 250 ml</p>
+                <p>Cena: 55 zł</p>
+                <button class="add-to-cart" data-price="55">
+                    Dodaj do koszyka
+                </button>
+            </article>
+
+            <article>
+                <img src="images/jesienna.png" alt="Świeca jesienna">
+                <h3>Jesienny wieczór</h3>
+                <p>Zapach: cynamon i jabłko</p>
+                <p>Pojemność: 250 ml</p>
+                <p>Cena: 59 zł</p>
+                <button class="add-to-cart" data-price="59">
+                    Dodaj do koszyka
+                </button>
+            </article>
+            </div>
+
+            <section class="cart">
+                <h2>Twój koszyk</h2>
+
+                <p>
+                    Razem: <span id="total-price">0.00</span> 
+                </p>
+
+                <p id="free-shipping"></p>
+            </section>
+ 
+        </section>
+
+        <section id="zamowienie">
+            <h2>Złóż zamówienie</h2>
+
+            <form id="orderForm" novalidate>
+
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" required>
+                <small class="error" id="imieError"></small>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <small class="error" id="emailError"></small>
+
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" name="telefon"
+                       pattern="[0-9]{9}" required>
+                <small class="error" id="telefonError"></small>
+
+                <label for="swieca">Wybierz świecę:</label>
+                <select id="swieca" name="swieca" required>
+                    <option value="">-- Wybierz świecę --</option>
+                    <option value="Lawendowy wieczór">Lawendowy wieczór</option>
+                    <option value="Waniliowy sen">Waniliowy sen</option>
+                    <option value="Leśna przygoda">Leśna przygoda</option>
+                    <option value="Różany ogród">Różany ogród</option>
+                    <option value="Cytrusowy poranek">Cytrusowy poranek</option>
+                    <option value="Jesienny wieczór">Jesienny wieczór</option>
+                </select>
+                <small class="error" id="swiecaError"></small>
+
+                <label for="ilosc">Ilość:</label>
+                <input type="number" id="ilosc" name="ilosc"
+                       min="1" max="20" required>
+                <small class="error" id="iloscError"></small>
+
+                <label for="dedykacja">Dedykacja na etykiecie (opcjonalnie):</label>
+                <textarea id="dedykacja" name="dedykacja"
+                          maxlength="40"></textarea>
+                <small id="charCount">0 / 40</small>
+
+                <button type="submit">Zamawiam</button>
+
+            </form>
+            <div id="successMessage"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Kontakt: kontakt@woskowachatka.pl</p>
+        <p>Telefon: 544 222 391</p>
+        <p>&copy; 2026 Woskowa Chatka. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
